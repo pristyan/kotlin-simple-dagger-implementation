@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_mini">3dp</dimen>
+    <dimen name="margin_small">5dp</dimen>
+    <dimen name="margin_normal">10dp</dimen>
+    <dimen name="margin_medium">15dp</dimen>
+    <dimen name="margin_large">20dp</dimen>
+
+    <dimen name="default_image">24dp</dimen>
+    <dimen name="input_small">30dp</dimen>
+    <dimen name="input_normal">40dp</dimen>
+    <dimen name="input_large">50dp</dimen>
+
+    <dimen name="image_list">60dp</dimen>
+    <dimen name="image_category_width">150dp</dimen>
+    <dimen name="image_category_height">60dp</dimen>
+    <dimen name="bottom_sheet">85dp</dimen>
+
+    <dimen name="divider">0.5dp</dimen>
+
+    <dimen name="text_mini">10sp</dimen>
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_normal">14sp</dimen>
+    <dimen name="text_medium">16sp</dimen>
+    <dimen name="text_large">18sp</dimen>
+    <dimen name="text_head_1">20sp</dimen>
+</resources>

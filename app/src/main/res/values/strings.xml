@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Offline Store</string>
+    <string name="menu_add_item">Add Item</string>
+    <string name="menu_store">Store</string>
+    <string name="hint_search_items">Search items</string>
+    <string name="btn_order">ORDER</string>
+    <string name="tv_total_sheet">Total :</string>
+    <string name="msg_order_success">Order Success</string>
+    <string name="btn_yes">Yes</string>
+    <string name="btn_no">No</string>
+    <string name="msg_order_confirmation">Are you sure to proceed this order ?</string>
+</resources>
