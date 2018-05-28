@@ -63,12 +63,12 @@ class MainActivity : BaseActivity(), GoodsAdapter.ItemListener, CategoryAdapter.
         categoryAdapter = CategoryAdapter(this)
         rv_category.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rv_category.adapter = categoryAdapter
-        categoryAdapter.update(categories.get())
+        categoryAdapter.update(categories.items)
 
         adapter = GoodsAdapter(this)
         rv_goods.layoutManager = LinearLayoutManager(this)
         rv_goods.adapter = adapter
-        adapter.update(goods.get())
+        adapter.update(goods.items)
 
         selectedAdapter = SelectedGoodsAdapter()
         rv_selected_goods.layoutManager = LinearLayoutManager(this)
@@ -94,8 +94,8 @@ class MainActivity : BaseActivity(), GoodsAdapter.ItemListener, CategoryAdapter.
     private fun order() {
         toast(R.string.msg_order_success)
         rv_goods.scrollToPosition(0)
-        (0 until goods.get().size).forEach { goods.get()[it].total = 0 }
-        adapter.update(goods.get())
+        (0 until goods.items.size).forEach { goods.items[it].total = 0 }
+        adapter.update(goods.items)
         selectedAdapter.update(ArrayList())
         sheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
     }
@@ -137,12 +137,12 @@ class MainActivity : BaseActivity(), GoodsAdapter.ItemListener, CategoryAdapter.
     private fun doSearch() {
         val items = ArrayList<GoodsModel>()
         val categoryId = categoryAdapter.getSelectedId()
-        (0 until goods.get().size)
+        (0 until goods.items.size)
                 .filter {
-                    goods.get()[it].name?.toLowerCase()?.contains(txt_search.text.toString()) == true
-                            && (categoryId == null || goods.get()[it].category_id == categoryId)
+                    goods.items[it].name?.toLowerCase()?.contains(txt_search.text.toString()) == true
+                            && (categoryId == null || goods.items[it].category_id == categoryId)
                 }
-                .forEach { items.add(goods.get()[it]) }
+                .forEach { items.add(goods.items[it]) }
 
         rv_goods.scheduleLayoutAnimation()
         adapter.update(items)
@@ -196,12 +196,12 @@ class MainActivity : BaseActivity(), GoodsAdapter.ItemListener, CategoryAdapter.
         if (item == null) doSearch()
         else {
             val filtered = ArrayList<GoodsModel>()
-            (0 until goods.get().size)
+            (0 until goods.items.size)
                     .filter {
-                        goods.get()[it].category_id == item.id
-                                && goods.get()[it].name?.toLowerCase()?.contains(txt_search.text.toString()) == true
+                        goods.items[it].category_id == item.id
+                                && goods.items[it].name?.toLowerCase()?.contains(txt_search.text.toString()) == true
                     }
-                    .forEach { filtered.add(goods.get()[it]) }
+                    .forEach { filtered.add(goods.items[it]) }
 
             rv_goods.scheduleLayoutAnimation()
             adapter.update(filtered)

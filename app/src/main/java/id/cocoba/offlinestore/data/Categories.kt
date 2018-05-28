@@ -17,27 +17,28 @@ class Categories @Inject constructor() {
         const val DRINK = "3"
     }
 
-    fun get(): ArrayList<CategoryModel> {
-        val models = ArrayList<CategoryModel>()
+    var items: ArrayList<CategoryModel> = ArrayList()
+    get() {
+        if (field.size == 0) {
+            var item = CategoryModel()
+            item.id = FOOD
+            item.name = "Food"
+            item.image = R.drawable.img_main_course
+            field.add(item)
 
-        var item = CategoryModel()
-        item.id = FOOD
-        item.name = "Food"
-        item.image = R.drawable.img_main_course
-        models.add(item)
+            item = CategoryModel()
+            item.id = DESSERT
+            item.name = "Dessert"
+            item.image = R.drawable.img_dessert
+            field.add(item)
 
-        item = CategoryModel()
-        item.id = DESSERT
-        item.name = "Dessert"
-        item.image = R.drawable.img_dessert
-        models.add(item)
+            item = CategoryModel()
+            item.id = DRINK
+            item.name = "Drink"
+            item.image = R.drawable.img_drinks
+            field.add(item)
 
-        item = CategoryModel()
-        item.id = DRINK
-        item.name = "Drink"
-        item.image = R.drawable.img_drinks
-        models.add(item)
-
-        return models
+            return field
+        } else return field
     }
 }
